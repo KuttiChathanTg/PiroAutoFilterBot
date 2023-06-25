@@ -11,6 +11,8 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
+from datetime import datetime
+from pytz import timezone
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
@@ -20,10 +22,11 @@ from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from Script import script 
-from datetime import date, datetime 
 import pytz
 from aiohttp import web
 from plugins import web_server
+LOGGER = logging.getLogger(__name__)
+TIMEZONE = (os.environ.get("TIMEZONE", "Asia/Kolkata"))
 
 class Bot(Client):
 
